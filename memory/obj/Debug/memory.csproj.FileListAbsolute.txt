@@ -1,0 +1,14 @@
+C:\Users\jjasi\PZ2\memory_game\memory\bin\Debug\memory.exe.config
+C:\Users\jjasi\PZ2\memory_game\memory\bin\Debug\memory.exe
+C:\Users\jjasi\PZ2\memory_game\memory\bin\Debug\memory.pdb
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.csproj.AssemblyReference.cache
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.csproj.SuggestedBindingRedirects.cache
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.Form1.resources
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.Properties.Resources.resources
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.csproj.GenerateResource.cache
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.csproj.CoreCompileInputs.cache
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.exe
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.pdb
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.Game_play.resources
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.Menu.resources
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.Ranking.resources
