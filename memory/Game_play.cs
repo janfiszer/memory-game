@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace memory
 {
@@ -21,9 +22,15 @@ namespace memory
             PictureBox clickedCard = sender as PictureBox;
             if (clickedCard != null)
             {
-                clickedCard.Visible = false;
+                clickedCard.Visible = false; 
+                //Thread.Sleep(unfolded_time);
+                clickedCard.Visible = true;
             }
+        }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
         }
     }
 }
