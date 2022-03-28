@@ -76,12 +76,17 @@ namespace memory
             unfolded_time -= 100;
             label1.Text = unfolded_time.ToString();
         }
-
+        //TODO: zawsze powiela ostatni CZEMU KURWA???!!
         public void addToRanking((string, int) score)
         {
+            // checking if it should be at the end of the ranking
+            if (score.Item2 <= ranking[ranking.Count - 1].Item2)
+            {
+                ranking.Add(score);
+            }
             for (int i = 0; i < ranking.Count; i++)
             {
-                if (score.Item2 > ranking[i].Item2)
+                if (score.Item2 >= ranking[i].Item2)
                 {
                     //adding to growen the list
                     ranking.Add(("empty", 0));
@@ -96,7 +101,7 @@ namespace memory
             }
             //ranking.Add(score);
         }
-        private void rankingToFile()
+        public void rankingToFile()
         {
             StringBuilder to_file = new StringBuilder();
             foreach ((string, int) s in ranking)
@@ -108,7 +113,6 @@ namespace memory
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            this.rankingToFile();
             ranking_window = new Ranking(this);
             //ranking_window.Activate();
             ranking_window.Show();

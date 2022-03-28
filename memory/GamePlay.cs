@@ -66,7 +66,7 @@ namespace memory
                 }
             }
         }
-
+        
         private void card_Click(object sender, EventArgs e)
         {
             Label clickedCard = sender as Label;
@@ -133,13 +133,26 @@ namespace memory
             // GAME ENDED scenario 
             if (guessedCards == 8)
             {
-                form1.addToRanking((form1.Nick, points));
-                string message = form1.Nick + ", Your score is: " + points;
-                MessageBox.Show(message, "GAME ENDED");
+                gameEndedAction();
             }
 
             firstClickedCard = null;
             secondClickedCard = null;
+        }
+        private void gameEndedAction()
+        {
+            form1.addToRanking((form1.Nick, points));
+            form1.rankingToFile();
+            string message = form1.Nick + ", Your score is: " + points;
+            MessageBox.Show(message, "GAME ENDED");
+            StringBuilder sb = new StringBuilder();
+            List<(string, int)> r = new List<(string, int)>();
+            r = form1.Ranking;
+            for (int i = 0; i < r.Count; ++i)
+            {
+                sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
+            }
+            debugging_shit.Text = sb.ToString();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
