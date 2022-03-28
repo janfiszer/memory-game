@@ -27,3 +27,4 @@ C:\Users\JF\repos\memory_game\memory\obj\Debug\memory.csproj.CoreCompileInputs.c
 C:\Users\JF\repos\memory_game\memory\obj\Debug\memory.exe
 C:\Users\JF\repos\memory_game\memory\obj\Debug\memory.pdb
 C:\Users\JF\repos\memory_game\memory\obj\Debug\memory.GamePlay.resources
+C:\Users\jjasi\PZ2\memory_game\memory\obj\Debug\memory.GamePlay.resources

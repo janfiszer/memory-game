@@ -26,7 +26,7 @@ namespace memory
             r = form1.Ranking;
             for (int i = 0; i < r.Count; ++i)
             {
-                sb.Append(r[i].ToString() + "\n");
+                sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
             }
             label1.Text = sb.ToString();
         }

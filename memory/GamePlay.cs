@@ -176,5 +176,10 @@ namespace memory
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            guessedCards = 7;
+        }
     }
 }

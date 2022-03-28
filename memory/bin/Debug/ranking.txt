@@ -1,2 +1,4 @@
-(jasiu, 34)
-
+jas 43
+sdad 40
+hugo 38
+mirek 32
