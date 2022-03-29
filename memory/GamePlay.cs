@@ -17,11 +17,8 @@ namespace memory
         private Form1 form1;
         private int points;
         private int guessedCards = 0;
-        List<String> symbols = new List<String>()
-         {
-        "a", "a", "d", "d", "e", "e", "h", "h",
-        "b", "b", "c", "c", "f", "f", "g", "g"
-         };
+        private int centyseconds = 0;
+        List<String> symbols;
         Label firstClickedCard = null;
         Label secondClickedCard = null;
 
@@ -31,21 +28,23 @@ namespace memory
             InitializeComponent();
             this.form1 = form1;
             label1.Text = form1.Nick + " is playing!";
-            reset();
+            startGameAction();
             debugging_shit.Text = form1.UnfoldedTime.ToString();
             timer1.Interval = form1.UnfoldedTime;
         }
 
-        private void reset()
+        private void startGameAction()
         {
             symbols = new List<String>
             {
             "a", "a", "d", "d", "e", "e", "h", "h",
             "b", "b", "c", "c", "f", "f", "g", "g"
             };
+            all_cards.ColumnCount = 5;
             points_label.Text = "0";
             guessedCards = 0;
             points = 0;
+            centyseconds = 0;
             firstClickedCard = null;
             secondClickedCard = null;
             ShuffleSquarse();
@@ -112,7 +111,6 @@ namespace memory
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
             timer1.Stop();
             // Checking if are cards the same
             if (firstClickedCard.Text.Equals(secondClickedCard.Text))
@@ -135,15 +133,16 @@ namespace memory
             {
                 gameEndedAction();
             }
-
             firstClickedCard = null;
             secondClickedCard = null;
         }
         private void gameEndedAction()
         {
+            points *= 1000;
+            points /= centyseconds;
             form1.addToRanking((form1.Nick, points));
             form1.rankingToFile();
-            string message = form1.Nick + ", Your score is: " + points;
+            string message = form1.Nick + ", Your score is (after taking time to consideration): " + points;
             MessageBox.Show(message, "GAME ENDED");
             StringBuilder sb = new StringBuilder();
             List<(string, int)> r = new List<(string, int)>();
@@ -153,6 +152,7 @@ namespace memory
                 sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
             }
             debugging_shit.Text = sb.ToString();
+            timer3.Stop();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -163,12 +163,13 @@ namespace memory
                 Label symbolLabel = card as Label;
                 symbolLabel.ForeColor = symbolLabel.BackColor;
             }
+            timer3.Start();
         }
 
         private void play_again_button_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reshuffling cards...", "Game started again");
-            reset();
+            startGameAction();
         }
 
         private void toMenu_button_Click(object sender, EventArgs e)
@@ -193,6 +194,27 @@ namespace memory
         private void button2_Click(object sender, EventArgs e)
         {
             guessedCards = 7;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (timer3.Enabled == false)
+            {
+                timer3.Start();
+                button1.Text = "PAUSE";
+
+            }
+            else
+            {
+                timer3.Stop();
+                button1.Text = "RESUME";
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            centyseconds++;
+            seconds_label.Text = centyseconds.ToString();
         }
     }
 }

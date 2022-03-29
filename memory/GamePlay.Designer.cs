@@ -57,6 +57,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.seconds_label = new System.Windows.Forms.Label();
             this.all_cards.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,14 +92,14 @@
             this.all_cards.Controls.Add(this.label5, 1, 0);
             this.all_cards.Controls.Add(this.label4, 0, 0);
             this.all_cards.Location = new System.Drawing.Point(267, 27);
-            this.all_cards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.all_cards.Margin = new System.Windows.Forms.Padding(4);
             this.all_cards.Name = "all_cards";
             this.all_cards.RowCount = 4;
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.all_cards.Size = new System.Drawing.Size(533, 501);
+            this.all_cards.Size = new System.Drawing.Size(536, 500);
             this.all_cards.TabIndex = 44;
             // 
             // label19
@@ -105,10 +108,10 @@
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label19.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label19.Location = new System.Drawing.Point(403, 375);
+            this.label19.Location = new System.Drawing.Point(406, 375);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 123);
+            this.label19.Size = new System.Drawing.Size(123, 122);
             this.label19.TabIndex = 15;
             this.label19.Text = "label19";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,10 +123,10 @@
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label18.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label18.Location = new System.Drawing.Point(271, 375);
+            this.label18.Location = new System.Drawing.Point(273, 375);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(121, 123);
+            this.label18.Size = new System.Drawing.Size(122, 122);
             this.label18.TabIndex = 14;
             this.label18.Text = "label18";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -135,10 +138,10 @@
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label17.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label17.Location = new System.Drawing.Point(139, 375);
+            this.label17.Location = new System.Drawing.Point(140, 375);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(121, 123);
+            this.label17.Size = new System.Drawing.Size(122, 122);
             this.label17.TabIndex = 13;
             this.label17.Text = "label17";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,7 +156,7 @@
             this.label16.Location = new System.Drawing.Point(7, 375);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(121, 123);
+            this.label16.Size = new System.Drawing.Size(122, 122);
             this.label16.TabIndex = 12;
             this.label16.Text = "label16";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,7 +168,7 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label15.Location = new System.Drawing.Point(403, 251);
+            this.label15.Location = new System.Drawing.Point(406, 251);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(123, 121);
@@ -180,10 +183,10 @@
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label14.Location = new System.Drawing.Point(271, 251);
+            this.label14.Location = new System.Drawing.Point(273, 251);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(121, 121);
+            this.label14.Size = new System.Drawing.Size(122, 121);
             this.label14.TabIndex = 10;
             this.label14.Text = "label14";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -195,10 +198,10 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label13.Location = new System.Drawing.Point(139, 251);
+            this.label13.Location = new System.Drawing.Point(140, 251);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(121, 121);
+            this.label13.Size = new System.Drawing.Size(122, 121);
             this.label13.TabIndex = 9;
             this.label13.Text = "label13";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,7 +216,7 @@
             this.label12.Location = new System.Drawing.Point(7, 251);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 121);
+            this.label12.Size = new System.Drawing.Size(122, 121);
             this.label12.TabIndex = 8;
             this.label12.Text = "label12";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -225,7 +228,7 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label11.Location = new System.Drawing.Point(403, 127);
+            this.label11.Location = new System.Drawing.Point(406, 127);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 121);
@@ -240,10 +243,10 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label10.Location = new System.Drawing.Point(271, 127);
+            this.label10.Location = new System.Drawing.Point(273, 127);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 121);
+            this.label10.Size = new System.Drawing.Size(122, 121);
             this.label10.TabIndex = 6;
             this.label10.Text = "label10";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -255,10 +258,10 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label9.Location = new System.Drawing.Point(139, 127);
+            this.label9.Location = new System.Drawing.Point(140, 127);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 121);
+            this.label9.Size = new System.Drawing.Size(122, 121);
             this.label9.TabIndex = 5;
             this.label9.Text = "label9";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -273,7 +276,7 @@
             this.label8.Location = new System.Drawing.Point(7, 127);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 121);
+            this.label8.Size = new System.Drawing.Size(122, 121);
             this.label8.TabIndex = 4;
             this.label8.Text = "label8";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,7 +289,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Location = new System.Drawing.Point(403, 3);
+            this.label7.Location = new System.Drawing.Point(406, 3);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 121);
@@ -301,10 +304,10 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(271, 3);
+            this.label6.Location = new System.Drawing.Point(273, 3);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 121);
+            this.label6.Size = new System.Drawing.Size(122, 121);
             this.label6.TabIndex = 2;
             this.label6.Text = "l";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,10 +319,10 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Location = new System.Drawing.Point(139, 3);
+            this.label5.Location = new System.Drawing.Point(140, 3);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 121);
+            this.label5.Size = new System.Drawing.Size(122, 121);
             this.label5.TabIndex = 1;
             this.label5.Text = "l";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -334,7 +337,7 @@
             this.label4.Location = new System.Drawing.Point(7, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 121);
+            this.label4.Size = new System.Drawing.Size(122, 121);
             this.label4.TabIndex = 0;
             this.label4.Text = "d";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -358,7 +361,7 @@
             // debugging_shit
             // 
             this.debugging_shit.AutoSize = true;
-            this.debugging_shit.Location = new System.Drawing.Point(16, 135);
+            this.debugging_shit.Location = new System.Drawing.Point(17, 191);
             this.debugging_shit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.debugging_shit.Name = "debugging_shit";
             this.debugging_shit.Size = new System.Drawing.Size(95, 16);
@@ -396,7 +399,7 @@
             // 
             this.play_again_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.play_again_button.Location = new System.Drawing.Point(20, 475);
-            this.play_again_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.play_again_button.Margin = new System.Windows.Forms.Padding(4);
             this.play_again_button.Name = "play_again_button";
             this.play_again_button.Size = new System.Drawing.Size(179, 48);
             this.play_again_button.TabIndex = 49;
@@ -408,7 +411,7 @@
             // 
             this.toMenu_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.toMenu_button.Location = new System.Drawing.Point(20, 420);
-            this.toMenu_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toMenu_button.Margin = new System.Windows.Forms.Padding(4);
             this.toMenu_button.Name = "toMenu_button";
             this.toMenu_button.Size = new System.Drawing.Size(179, 48);
             this.toMenu_button.TabIndex = 50;
@@ -419,8 +422,8 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(852, 31);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Location = new System.Drawing.Point(849, 31);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(65, 20);
             this.checkBox1.TabIndex = 51;
@@ -432,16 +435,17 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.Location = new System.Drawing.Point(20, 364);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 48);
             this.button1.TabIndex = 52;
             this.button1.Text = "PAUSE";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(852, 64);
+            this.button2.Location = new System.Drawing.Point(849, 64);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 53;
@@ -449,11 +453,39 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(16, 127);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "TIME:";
+            // 
+            // seconds_label
+            // 
+            this.seconds_label.AutoSize = true;
+            this.seconds_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.seconds_label.Location = new System.Drawing.Point(113, 116);
+            this.seconds_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.seconds_label.Name = "seconds_label";
+            this.seconds_label.Size = new System.Drawing.Size(46, 52);
+            this.seconds_label.TabIndex = 55;
+            this.seconds_label.Text = "0";
+            // 
             // GamePlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(992, 553);
+            this.Controls.Add(this.seconds_label);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
@@ -464,8 +496,10 @@
             this.Controls.Add(this.debugging_shit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.all_cards);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GamePlay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GamePlay";
             this.all_cards.ResumeLayout(false);
             this.all_cards.PerformLayout();
@@ -504,5 +538,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label seconds_label;
     }
 }

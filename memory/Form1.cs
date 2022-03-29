@@ -39,7 +39,6 @@ namespace memory
         {
             InitializeComponent();
             loadRanking();
-
         }
         private void loadRanking()
         {
@@ -76,25 +75,25 @@ namespace memory
             unfolded_time -= 100;
             label1.Text = unfolded_time.ToString();
         }
-        //TODO: zawsze powiela ostatni CZEMU KURWA???!!
         public void addToRanking((string, int) score)
         {
             // checking if it should be at the end of the ranking
             if (score.Item2 <= ranking[ranking.Count - 1].Item2)
             {
                 ranking.Add(score);
+                return;
             }
             for (int i = 0; i < ranking.Count; i++)
             {
                 if (score.Item2 >= ranking[i].Item2)
                 {
                     //adding to growen the list
-                    ranking.Add(("empty", 0));
-                    // making place for new record
-                    for (int j = ranking.Count - 1; j > i ; j--)
-                    {
-                        ranking[j] = ranking[j - 1];
-                    }
+                    //ranking.Add(("empty", 0));
+                    //// making place for new record
+                    //for (int j = ranking.Count - 1; j > i ; j--)
+                    //{
+                    //    ranking[j] = ranking[j - 1];
+                    //}
                     ranking.Insert(i, score);
                     return;
                 }
@@ -116,6 +115,12 @@ namespace memory
             ranking_window = new Ranking(this);
             //ranking_window.Activate();
             ranking_window.Show();
+            //this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

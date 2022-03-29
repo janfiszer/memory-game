@@ -17,18 +17,23 @@ namespace memory
         {
             InitializeComponent();
             this.form1 = form1;
-        }
+            showRanking();
 
-        private void toMenu_button_Click(object sender, EventArgs e)
+        }
+        private void showRanking()
         {
             StringBuilder sb = new StringBuilder();
             List<(string, int)> r = new List<(string, int)>();
             r = form1.Ranking;
-            for (int i = 0; i < r.Count; ++i)
+            for (int i = 1; i <= r.Count; ++i)
             {
-                sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
+                sb.Append(i + ". " + r[i-1].Item1 + "  " + r[i-1].Item2 + "\n");
             }
             label1.Text = sb.ToString();
+        }
+        private void toMenu_button_Click(object sender, EventArgs e)
+        {
+            //this.Close();
         }
     }
 }
