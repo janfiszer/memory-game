@@ -42,19 +42,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(210, 56);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(158, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(560, 29);
+            this.label3.Size = new System.Drawing.Size(441, 24);
             this.label3.TabIndex = 22;
             this.label3.Text = "TO START THE GAME ENTER YOUR NICKNAME";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(416, 252);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(312, 205);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 28);
+            this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 21;
             this.button2.Text = "RANKING";
             this.button2.UseVisualStyleBackColor = true;
@@ -63,10 +61,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(372, 154);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(279, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 16);
+            this.label2.Size = new System.Drawing.Size(169, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Unfolded cards time in miliseconds";
             // 
@@ -74,19 +71,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(421, 181);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(316, 147);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 69);
+            this.label1.Size = new System.Drawing.Size(132, 55);
             this.label1.TabIndex = 19;
             this.label1.Text = "2000";
             // 
             // decrease_button
             // 
-            this.decrease_button.Location = new System.Drawing.Point(380, 220);
-            this.decrease_button.Margin = new System.Windows.Forms.Padding(4);
+            this.decrease_button.Location = new System.Drawing.Point(285, 179);
             this.decrease_button.Name = "decrease_button";
-            this.decrease_button.Size = new System.Drawing.Size(33, 28);
+            this.decrease_button.Size = new System.Drawing.Size(25, 23);
             this.decrease_button.TabIndex = 18;
             this.decrease_button.Text = "-";
             this.decrease_button.UseVisualStyleBackColor = true;
@@ -94,10 +89,9 @@
             // 
             // increase_button
             // 
-            this.increase_button.Location = new System.Drawing.Point(380, 183);
-            this.increase_button.Margin = new System.Windows.Forms.Padding(4);
+            this.increase_button.Location = new System.Drawing.Point(285, 149);
             this.increase_button.Name = "increase_button";
-            this.increase_button.Size = new System.Drawing.Size(33, 28);
+            this.increase_button.Size = new System.Drawing.Size(25, 23);
             this.increase_button.TabIndex = 17;
             this.increase_button.Text = "+";
             this.increase_button.UseVisualStyleBackColor = true;
@@ -105,10 +99,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(414, 122);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(310, 99);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 28);
+            this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 16;
             this.button1.Text = "START GAME";
             this.button1.UseVisualStyleBackColor = true;
@@ -116,17 +109,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(414, 90);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(310, 73);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 15;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 553);
+            this.ClientSize = new System.Drawing.Size(744, 449);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -136,11 +128,11 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Memory";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

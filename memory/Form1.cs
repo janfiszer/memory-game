@@ -56,8 +56,7 @@ namespace memory
                 gamePlay = new GamePlay(this);
                 //gamePlay.Activate();
                 gamePlay.Show();
-                //(string, int) to_add = (textBox1.Text, 0);
-                //ranking.Add(to_add);
+                //this.Hide();
             }
             else
             {
@@ -116,11 +115,6 @@ namespace memory
             //ranking_window.Activate();
             ranking_window.Show();
             //this.Hide();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
