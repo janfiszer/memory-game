@@ -14,6 +14,7 @@ namespace memory
 {
     public partial class Form1 : Form
     {
+        int y = 0;
         List<(string, int)> ranking = new List<(string, int)> ();
         private String nick; 
         private int unfolded_time = 2000;
@@ -115,6 +116,21 @@ namespace memory
             //ranking_window.Activate();
             ranking_window.Show();
             //this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ranking_window.IsAccessible && gamePlay.IsAccessible)
+            {
+                this.Show();
+                y++;
+                label4.Text = y.ToString();
+            }
         }
     }
 }

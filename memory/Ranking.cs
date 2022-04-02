@@ -18,6 +18,7 @@ namespace memory
             InitializeComponent();
             this.form1 = form1;
             this.Location = form1.Location;
+            this.Size = form1.Size;
             showRanking();
 
         }

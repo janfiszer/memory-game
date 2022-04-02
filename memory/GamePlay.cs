@@ -27,6 +27,7 @@ namespace memory
         {
             InitializeComponent();
             this.Location = form1.Location;
+            this.Size = form1.Size;
             this.form1 = form1;
             label1.Text = form1.Nick + " is playing!";
             startGameAction();
