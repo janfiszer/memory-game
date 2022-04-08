@@ -67,6 +67,7 @@
             // 
             this.all_cards.AccessibleDescription = "public";
             this.all_cards.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.all_cards.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.all_cards.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.all_cards.CausesValidation = false;
             this.all_cards.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
@@ -92,7 +93,7 @@
             this.all_cards.Controls.Add(this.label5, 1, 0);
             this.all_cards.Controls.Add(this.label4, 0, 0);
             this.all_cards.Location = new System.Drawing.Point(267, 27);
-            this.all_cards.Margin = new System.Windows.Forms.Padding(4);
+            this.all_cards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.all_cards.Name = "all_cards";
             this.all_cards.RowCount = 4;
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -397,9 +398,10 @@
             // 
             // play_again_button
             // 
+            this.play_again_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.play_again_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.play_again_button.Location = new System.Drawing.Point(20, 475);
-            this.play_again_button.Margin = new System.Windows.Forms.Padding(4);
+            this.play_again_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.play_again_button.Name = "play_again_button";
             this.play_again_button.Size = new System.Drawing.Size(179, 48);
             this.play_again_button.TabIndex = 49;
@@ -409,9 +411,10 @@
             // 
             // toMenu_button
             // 
+            this.toMenu_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.toMenu_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.toMenu_button.Location = new System.Drawing.Point(20, 420);
-            this.toMenu_button.Margin = new System.Windows.Forms.Padding(4);
+            this.toMenu_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.toMenu_button.Name = "toMenu_button";
             this.toMenu_button.Size = new System.Drawing.Size(179, 48);
             this.toMenu_button.TabIndex = 50;
@@ -423,7 +426,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(849, 31);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(65, 20);
             this.checkBox1.TabIndex = 51;
@@ -433,9 +436,10 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.Location = new System.Drawing.Point(20, 364);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(179, 48);
             this.button1.TabIndex = 52;
@@ -446,6 +450,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(849, 64);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 53;
@@ -496,11 +501,12 @@
             this.Controls.Add(this.debugging_shit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.all_cards);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
             this.Name = "GamePlay";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "GamePlay";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.all_cards.ResumeLayout(false);
             this.all_cards.PerformLayout();
             this.ResumeLayout(false);

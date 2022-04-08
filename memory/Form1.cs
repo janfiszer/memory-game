@@ -14,6 +14,7 @@ namespace memory
 {
     public partial class Form1 : Form
     {
+        int y = 0;
         List<(string, int)> ranking = new List<(string, int)> ();
         private String nick; 
         private int unfolded_time = 2000;
@@ -56,13 +57,20 @@ namespace memory
                 gamePlay = new GamePlay(this);
                 //gamePlay.Activate();
                 gamePlay.Show();
-                //(string, int) to_add = (textBox1.Text, 0);
-                //ranking.Add(to_add);
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("No nickname entered", "Unable to start the game");
             }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ranking_window = new Ranking(this);
+            //ranking_window.Activate();
+            ranking_window.Show();
+            timer1.Enabled = true;
+            this.Hide();
         }
         private void increase_button_Click(object sender, EventArgs e)
         {
@@ -110,17 +118,24 @@ namespace memory
             }
             File.WriteAllText("ranking.txt", to_file.ToString());
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ranking_window = new Ranking(this);
-            //ranking_window.Activate();
-            ranking_window.Show();
-            //this.Hide();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ranking_window == null)
+            {
+                MessageBox.Show("zakmniete");
+            }
+            //if (ranking_window.IsAccessible && gamePlay.IsAccessible)
+            //{
+            //    this.Show();
+            //    y++;
+            //    label4.Text = y.ToString();
+            //}
         }
     }
 }

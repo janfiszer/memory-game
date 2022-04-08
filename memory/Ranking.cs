@@ -17,6 +17,8 @@ namespace memory
         {
             InitializeComponent();
             this.form1 = form1;
+            this.Location = form1.Location;
+            this.Size = form1.Size;
             showRanking();
 
         }
@@ -33,7 +35,13 @@ namespace memory
         }
         private void toMenu_button_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            this.Close();
+            form1.Show();
+        }
+
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            form1.Show();
         }
     }
 }

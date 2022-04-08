@@ -26,6 +26,8 @@ namespace memory
         public GamePlay(Form1 form1)
         {
             InitializeComponent();
+            this.Location = form1.Location;
+            this.Size = form1.Size;
             this.form1 = form1;
             label1.Text = form1.Nick + " is playing!";
             startGameAction();
@@ -71,6 +73,11 @@ namespace memory
             Label clickedCard = sender as Label;
             if (clickedCard != null)
             {
+                if (timer3.Enabled == false)
+                {
+                    MessageBox.Show("Game paused, resume to continue playing");
+                    return;
+                }
                 if (already_choosen(clickedCard) || already_guessed(clickedCard) )
                     return;
                 //MessageBox.Show("clicked", "lelele");
@@ -174,6 +181,7 @@ namespace memory
 
         private void toMenu_button_Click(object sender, EventArgs e)
         {
+            form1.Show();
             this.Close();
         }
 
@@ -215,6 +223,11 @@ namespace memory
         {
             centyseconds++;
             seconds_label.Text = centyseconds.ToString();
+        }
+
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            form1.Show();
         }
     }
 }

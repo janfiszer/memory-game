@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\memory",
-    "\\memory\\bin",
-    "\\memory\\obj"
+    "\\memory"
   ],
-  "SelectedNode": "\\memory\\Form1.cs",
+  "SelectedNode": "\\memory\\GamePlay.cs",
   "PreviewInSolutionExplorer": false
 }
