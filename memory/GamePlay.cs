@@ -224,5 +224,10 @@ namespace memory
             centyseconds++;
             seconds_label.Text = centyseconds.ToString();
         }
+
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            form1.Show();
+        }
     }
 }

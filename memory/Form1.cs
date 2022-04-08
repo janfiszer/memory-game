@@ -18,6 +18,7 @@ namespace memory
         List<(string, int)> ranking = new List<(string, int)> ();
         private String nick; 
         private int unfolded_time = 2000;
+        private int start_time = 0;
         GamePlay gamePlay;
         Ranking ranking_window;
 
@@ -57,23 +58,42 @@ namespace memory
                 gamePlay = new GamePlay(this);
                 //gamePlay.Activate();
                 gamePlay.Show();
-                //this.Hide();
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("No nickname entered", "Unable to start the game");
             }
         }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ranking_window = new Ranking(this);
+            //ranking_window.Activate();
+            ranking_window.Show();
+            timer1.Enabled = true;
+            this.Hide();
+        }
         private void increase_button_Click(object sender, EventArgs e)
         {
+            if (decrease_button.Enabled == false)
+            {
+                decrease_button.Enabled = true;
+            }
             unfolded_time += 100;
             label1.Text = unfolded_time.ToString();
         }
 
         private void decrease_button_Click(object sender, EventArgs e)
         {
-            unfolded_time -= 100;
-            label1.Text = unfolded_time.ToString();
+            if (unfolded_time > 100)
+            {
+                unfolded_time -= 100;
+                label1.Text = unfolded_time.ToString();
+                if (unfolded_time == 100)
+                {
+                    decrease_button.Enabled = false;
+                }
+            }
         }
         public void addToRanking((string, int) score)
         {
@@ -110,13 +130,6 @@ namespace memory
             }
             File.WriteAllText("ranking.txt", to_file.ToString());
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ranking_window = new Ranking(this);
-            //ranking_window.Activate();
-            ranking_window.Show();
-            //this.Hide();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -125,12 +138,16 @@ namespace memory
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (ranking_window.IsAccessible && gamePlay.IsAccessible)
+            if (ranking_window == null)
             {
-                this.Show();
-                y++;
-                label4.Text = y.ToString();
+                MessageBox.Show("zakmniete");
             }
+            //if (ranking_window.IsAccessible && gamePlay.IsAccessible)
+            //{
+            //    this.Show();
+            //    y++;
+            //    label4.Text = y.ToString();
+            //}
         }
     }
 }

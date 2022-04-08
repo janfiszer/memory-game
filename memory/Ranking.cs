@@ -38,5 +38,10 @@ namespace memory
             this.Close();
             form1.Show();
         }
+
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            form1.Show();
+        }
     }
 }
