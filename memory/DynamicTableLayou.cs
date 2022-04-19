@@ -15,24 +15,24 @@ namespace memory
         System.Windows.Forms.TableLayoutPanel all_cards;
         private Label label4;
         private Label label5;
-        Label label6;
-        Label label7;
-        Label label8;
-        Label label9;
-        Label label10;
-        Label label11;
-        Label label12;
-        Label label13;
-        Label label14;
-        Label label15;
-        Label label16;
-        Label label17;
-        Label label18;
-        Label label19;
-        Label label20;
-        Label label21;
-        Label label22;
-        Label label23;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
 
         List<Label> labels = new List<Label>();
 
@@ -43,12 +43,9 @@ namespace memory
 
         readonly int cardSize = 100;
 
-        public List<Label> Labels { get => Labels1; set => Labels1 = value; }
-        public List<Label> Labels1 { get => labels; set => labels = value; }
-
         public DynamicTableLayou()
         {
-            int size = 4;
+            int size = 5;
             InitializeComponent();
             symbols = new List<String>
             {
@@ -65,6 +62,13 @@ namespace memory
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void setLabelProprties(Label label)
+        {
+            label.AutoSize = true;
+            label.Dock = System.Windows.Forms.DockStyle.Fill;
+            label.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         }
         private void createTable(int size)
         {
@@ -90,12 +94,6 @@ namespace memory
             this.label4 = new System.Windows.Forms.Label();
 
             labels.Add(label4);
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Wingdings", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            //this.label4.Click += new System.EventHandler(this.card_Click);
             labels.Add(label5);
             labels.Add(label6);
             labels.Add(label7);
@@ -121,7 +119,11 @@ namespace memory
                 labels.Add(label22);
                 labels.Add(label23);
             }
-
+            foreach (Label label in labels)
+            {
+                setLabelProprties(label);
+            }
+            
             this.all_cards = new System.Windows.Forms.TableLayoutPanel();
             this.all_cards.AccessibleDescription = "public";
             this.all_cards.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -147,27 +149,12 @@ namespace memory
                 }
                 this.all_cards.Controls.Add(label, column, row);
             }
-            /*//this.all_cards.Controls.Add(this.label19, 3, 3);
-            this.all_cards.Controls.Add(this.label18, 2, 3);
-            this.all_cards.Controls.Add(this.label17, 1, 3);
-            this.all_cards.Controls.Add(this.label16, 0, 3);
-            //this.all_cards.Controls.Add(this.label15, 3, 2);
-            this.all_cards.Controls.Add(this.label14, 2, 2);
-            this.all_cards.Controls.Add(this.label13, 1, 2);
-            this.all_cards.Controls.Add(this.label12, 0, 2);
-            //this.all_cards.Controls.Add(this.label11, 3, 1);
-            this.all_cards.Controls.Add(this.label10, 2, 1);
-            this.all_cards.Controls.Add(this.label9, 1, 1);
-            this.all_cards.Controls.Add(this.label8, 0, 1);
-            //this.all_cards.Controls.Add(this.label7, 3, 0);
-            this.all_cards.Controls.Add(this.label6, 2, 0);
-            this.all_cards.Controls.Add(this.label5, 1, 0);
-            this.all_cards.Controls.Add(this.label4, 0, 0);*/
+
             this.all_cards.Location = new System.Drawing.Point(267, 27);
             this.all_cards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.all_cards.Name = "all_cards";
             this.all_cards.RowCount = 4;
-            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute,cardSize));
+            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, cardSize));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, cardSize));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, cardSize));
             this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, cardSize));
@@ -176,8 +163,6 @@ namespace memory
             this.all_cards.TabIndex = 44;
 
             this.Controls.Add(this.all_cards);
-
-
         }
 
         private void ShuffleSquarse()
@@ -185,7 +170,7 @@ namespace memory
             foreach (Control card in all_cards.Controls)
             {
                 Label symbolLabel = card as Label;
-                // TODO: make it smoother
+
                 if (symbolLabel != null)
                 {
                     int randomIndex = random.Next(symbols.Count);

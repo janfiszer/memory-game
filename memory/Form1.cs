@@ -59,8 +59,27 @@ namespace memory
         {
             if (textBox1.Text != "")
             {
+                int level = 0;
                 nick = textBox1.Text;
-                gamePlay = new GamePlay(this);
+
+                if (radioButton1.Checked == true)
+                {
+                    level = 3;
+                }
+                if (radioButton2.Checked == true)
+                {
+                    level = 4;
+                }
+                if (radioButton3.Checked == true)
+                {
+                    level = 5;
+                }
+                if (level == 0)
+                {
+                    MessageBox.Show("Choose a difficulty level", "Unable to start the game");
+                    return;
+                }
+                gamePlay = new GamePlay(this, level);
                 //gamePlay.Activate();
                 gamePlay.Show();
                 this.Hide();
