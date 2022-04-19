@@ -42,18 +42,61 @@ namespace memory
             "a", "a", "d", "d", "e", "e", "h", "h",
             "b", "b", "c", "c", "f", "f", "g", "g"
             };
-            all_cards.ColumnCount = 5;
             points_label.Text = "0";
             guessedCards = 0;
             points = 0;
             centyseconds = 0;
             firstClickedCard = null;
             secondClickedCard = null;
+            timer2.Interval = form1.StartTime;
+
             ShuffleSquarse();
             unfoldAllCards();
             timer2.Start();
         }
 
+        // MAYBE SOMEDAY TODO:
+        private void createTable(int size)
+        {
+            this.all_cards = new System.Windows.Forms.TableLayoutPanel();
+            this.all_cards.AccessibleDescription = "public";
+            this.all_cards.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.all_cards.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.all_cards.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.all_cards.CausesValidation = false;
+            this.all_cards.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+            this.all_cards.ColumnCount = 3;
+            this.all_cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.all_cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.all_cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.all_cards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.all_cards.Controls.Add(this.label19, 3, 3);
+            this.all_cards.Controls.Add(this.label18, 2, 3);
+            this.all_cards.Controls.Add(this.label17, 1, 3);
+            this.all_cards.Controls.Add(this.label16, 0, 3);
+            this.all_cards.Controls.Add(this.label15, 3, 2);
+            this.all_cards.Controls.Add(this.label14, 2, 2);
+            this.all_cards.Controls.Add(this.label13, 1, 2);
+            this.all_cards.Controls.Add(this.label12, 0, 2);
+            this.all_cards.Controls.Add(this.label11, 3, 1);
+            this.all_cards.Controls.Add(this.label10, 2, 1);
+            this.all_cards.Controls.Add(this.label9, 1, 1);
+            this.all_cards.Controls.Add(this.label8, 0, 1);
+            this.all_cards.Controls.Add(this.label7, 3, 0);
+            this.all_cards.Controls.Add(this.label6, 2, 0);
+            this.all_cards.Controls.Add(this.label5, 1, 0);
+            this.all_cards.Controls.Add(this.label4, 0, 0);
+            this.all_cards.Location = new System.Drawing.Point(267, 27);
+            this.all_cards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.all_cards.Name = "all_cards";
+            this.all_cards.RowCount = 4;
+            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.all_cards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.all_cards.Size = new System.Drawing.Size(536, 500);
+            this.all_cards.TabIndex = 44;
+        }
         private void ShuffleSquarse()
         {
             foreach (Control card in all_cards.Controls)
@@ -147,6 +190,7 @@ namespace memory
         {
             points *= 1000;
             points /= centyseconds;
+            points -= form1.StartTime / 1000;
             form1.addToRanking((form1.Nick, points));
             form1.rankingToFile();
             string message = form1.Nick + ", Your score is (after taking time to consideration): " + points;

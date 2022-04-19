@@ -18,7 +18,7 @@ namespace memory
         List<(string, int)> ranking = new List<(string, int)> ();
         private String nick; 
         private int unfolded_time = 2000;
-        private int start_time = 0;
+        private int start_time = 3000;
         GamePlay gamePlay;
         Ranking ranking_window;
 
@@ -31,6 +31,11 @@ namespace memory
         {
             get { return unfolded_time; }
             set { unfolded_time = value; }
+        }
+        public int StartTime
+        {
+            get { return start_time; }
+            set { start_time = value; }
         }
         public List<(string, int)> Ranking
         {
@@ -95,6 +100,27 @@ namespace memory
                 }
             }
         }
+        private void button2_increase_Click(object sender, EventArgs e)
+        {
+            if (button2_deacrease.Enabled == false)
+            {
+                button2_deacrease.Enabled = true;
+            }
+            start_time += 100;
+            label5.Text = start_time.ToString();
+        }
+        private void button2_deacrease_Click(object sender, EventArgs e)
+        {
+            if (start_time > 100)
+            {
+                start_time -= 100;
+                label5.Text = start_time.ToString();
+                if (start_time == 100)
+                {
+                    button2_deacrease.Enabled = false;
+                }
+            }
+        }
         public void addToRanking((string, int) score)
         {
             // checking if it should be at the end of the ranking
@@ -148,6 +174,12 @@ namespace memory
             //    y++;
             //    label4.Text = y.ToString();
             //}
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DynamicTableLayou dynamicTableLayou = new DynamicTableLayou();
+            dynamicTableLayou.Show();
         }
     }
 }

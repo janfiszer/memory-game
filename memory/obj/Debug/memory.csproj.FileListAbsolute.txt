@@ -43,3 +43,4 @@ C:\Users\jjasi\studia\semestr 4\PZ2\memory_game\memory\obj\Debug\memory.csproj.G
 C:\Users\jjasi\studia\semestr 4\PZ2\memory_game\memory\obj\Debug\memory.csproj.CoreCompileInputs.cache
 C:\Users\jjasi\studia\semestr 4\PZ2\memory_game\memory\obj\Debug\memory.exe
 C:\Users\jjasi\studia\semestr 4\PZ2\memory_game\memory\obj\Debug\memory.pdb
+C:\Users\JF\repos\memory_game\memory\obj\Debug\memory.DynamicTableLayou.resources
