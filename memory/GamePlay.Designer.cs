@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GamePlay));
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.debugging_shit = new System.Windows.Forms.Label();
@@ -179,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(744, 449);
             this.Controls.Add(this.seconds_label);
             this.Controls.Add(this.label3);
@@ -191,6 +193,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.debugging_shit);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GamePlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

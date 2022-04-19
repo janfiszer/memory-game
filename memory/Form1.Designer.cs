@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,11 +43,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button2_deacrease = new System.Windows.Forms.Button();
             this.button2_increase = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -183,16 +184,6 @@
             this.button2_increase.UseVisualStyleBackColor = true;
             this.button2_increase.Click += new System.EventHandler(this.button2_increase_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(29, 315);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -239,10 +230,21 @@
             this.label6.TabIndex = 31;
             this.label6.Text = "Unfolded time at the start in miliseconds";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(29, 315);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(744, 449);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.radioButton3);
@@ -261,6 +263,8 @@
             this.Controls.Add(this.increase_button);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
+            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,11 +289,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2_deacrease;
         private System.Windows.Forms.Button button2_increase;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
     }
 }
 

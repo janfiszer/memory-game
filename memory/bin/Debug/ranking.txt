@@ -1,6 +1,8 @@
+mario 333
 gegege 125
 fda 122
 hej 111
+dagag 108
 tomek 75
 hehe 51
 maciek 42
