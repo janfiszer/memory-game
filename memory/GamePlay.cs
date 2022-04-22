@@ -42,7 +42,7 @@ namespace memory
         List<Label> labels = new List<Label>();
 
 
-        int level;
+        Level level;
         private Form1 form1;
         private int points;
         private int guessedCards = 0;
@@ -52,7 +52,7 @@ namespace memory
         Label secondClickedCard = null;
 
         // TODO: LEVEL -> ENUM
-        public GamePlay(Form1 form1, int level)
+        public GamePlay(Form1 form1, Level level)
         {
             InitializeComponent();
             this.Location = form1.Location;
@@ -62,8 +62,7 @@ namespace memory
             this.level = level;
 
             startGameAction();
-            debugging_shit.Text = form1.UnfoldedTime.ToString();
-            timer1.Interval = form1.UnfoldedTime;
+
         }
 
         private void startGameAction()
@@ -74,15 +73,16 @@ namespace memory
             "a", "a", "d", "d", "e", "e", "h", "h", "i", "i",
             "b", "b", "c", "c", "f", "f", "g", "g", "j", "j"
             };
-            symbols = symbols.GetRange(0, this.level * 4);
+            symbols = symbols.GetRange(0, (int)this.level * 4);
 
             // PLAY AGAIN SYNERIO 
             // We don't want to create table if we did it before
             if (labels.Count == 0)
             {
-                createTable(level);
+                createTable((int)level);
             }
 
+            timer1.Interval = form1.UnfoldedTime;
             points_label.Text = "0";
             guessedCards = 0;
             points = 0;
@@ -181,7 +181,7 @@ namespace memory
             points_label.Text = points.ToString();
 
             // GAME ENDED scenario 
-            if (guessedCards == level * 2)
+            if (guessedCards == (int)level * 2)
             {
                 gameEndedAction();
             }
@@ -194,7 +194,7 @@ namespace memory
             points *= 1000;
             points /= centyseconds;
             points -= form1.StartTime / 1000;
-            points *= (level - 2);
+            points *= ((int)level - 2);
         }
         private void gameEndedAction()
         {
@@ -204,14 +204,6 @@ namespace memory
             timer3.Stop();
             string message = form1.Nick + ", Your score is (after taking time to consideration): " + points;
             MessageBox.Show(message, "GAME ENDED");
-            StringBuilder sb = new StringBuilder();
-            List<(string, int)> r = new List<(string, int)>();
-            r = form1.Ranking;
-            for (int i = 0; i < r.Count; ++i)
-            {
-                sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
-            }
-            debugging_shit.Text = sb.ToString();
         }
 
         private void timer2_Tick(object sender, EventArgs e)

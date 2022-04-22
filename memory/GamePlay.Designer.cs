@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GamePlay));
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.debugging_shit = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.points_label = new System.Windows.Forms.Label();
@@ -58,16 +57,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // debugging_shit
-            // 
-            this.debugging_shit.AutoSize = true;
-            this.debugging_shit.Location = new System.Drawing.Point(17, 191);
-            this.debugging_shit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.debugging_shit.Name = "debugging_shit";
-            this.debugging_shit.Size = new System.Drawing.Size(95, 16);
-            this.debugging_shit.TabIndex = 46;
-            this.debugging_shit.Text = "debugging shit";
             // 
             // timer2
             // 
@@ -174,7 +163,6 @@
             this.Controls.Add(this.play_again_button);
             this.Controls.Add(this.points_label);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.debugging_shit);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -208,7 +196,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label debugging_shit;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label points_label;

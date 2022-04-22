@@ -20,7 +20,6 @@ namespace memory
             this.Location = form1.Location;
             this.Size = form1.Size;
             showRanking();
-
         }
         private void showRanking()
         {
