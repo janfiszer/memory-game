@@ -12,12 +12,18 @@ using System.IO;
 
 namespace memory
 {
+    public enum Level
+    {
+        EASY = 3,
+        MEDIUM = 4,
+        HARD = 5
+    }
     public partial class Form1 : Form
     {
-        int y = 0;
         List<(string, int)> ranking = new List<(string, int)> ();
         private String nick; 
-        private int unfolded_time = 2000;
+        private int unfolded_time = 1000;
+        private int start_time = 3000;
         GamePlay gamePlay;
         Ranking ranking_window;
 
@@ -31,6 +37,11 @@ namespace memory
             get { return unfolded_time; }
             set { unfolded_time = value; }
         }
+        public int StartTime
+        {
+            get { return start_time; }
+            set { start_time = value; }
+        }
         public List<(string, int)> Ranking
         {
             get { return ranking; }
@@ -39,9 +50,9 @@ namespace memory
         public Form1()
         {
             InitializeComponent();
-            loadRanking();
+            loadRankingFromFile();
         }
-        private void loadRanking()
+        private void loadRankingFromFile()
         {
             foreach(string line in System.IO.File.ReadLines("ranking.txt"))
             {
@@ -53,8 +64,27 @@ namespace memory
         {
             if (textBox1.Text != "")
             {
+                int level = 0;
                 nick = textBox1.Text;
-                gamePlay = new GamePlay(this);
+
+                if (radioButton1.Checked == true)
+                {
+                    level = 3;
+                }
+                if (radioButton2.Checked == true)
+                {
+                    level = 4;
+                }
+                if (radioButton3.Checked == true)
+                {
+                    level = 5;
+                }
+                if (level == 0)
+                {
+                    MessageBox.Show("Choose a difficulty level", "Unable to start the game");
+                    return;
+                }
+                gamePlay = new GamePlay(this, level);
                 //gamePlay.Activate();
                 gamePlay.Show();
                 this.Hide();
@@ -67,22 +97,56 @@ namespace memory
         private void button2_Click(object sender, EventArgs e)
         {
             ranking_window = new Ranking(this);
-            //ranking_window.Activate();
+
             ranking_window.Show();
-            timer1.Enabled = true;
+
             this.Hide();
         }
         private void increase_button_Click(object sender, EventArgs e)
         {
+            if (decrease_button.Enabled == false)
+            {
+                decrease_button.Enabled = true;
+            }
             unfolded_time += 100;
             label1.Text = unfolded_time.ToString();
         }
 
         private void decrease_button_Click(object sender, EventArgs e)
         {
-            unfolded_time -= 100;
-            label1.Text = unfolded_time.ToString();
+            if (unfolded_time > 100)
+            {
+                unfolded_time -= 100;
+                label1.Text = unfolded_time.ToString();
+                if (unfolded_time == 100)
+                {
+                    decrease_button.Enabled = false;
+                }
+            }
         }
+        private void button2_increase_Click(object sender, EventArgs e)
+        {
+            if (button2_deacrease.Enabled == false)
+            {
+                button2_deacrease.Enabled = true;
+            }
+            start_time += 100;
+            label5.Text = start_time.ToString();
+        }
+        private void button2_deacrease_Click(object sender, EventArgs e)
+        {
+            if (start_time > 100)
+            {
+                start_time -= 100;
+                label5.Text = start_time.ToString();
+                if (start_time == 100)
+                {
+                    button2_deacrease.Enabled = false;
+                }
+            }
+        }
+
+        // Adds to ranking sorted in correct place
         public void addToRanking((string, int) score)
         {
             // checking if it should be at the end of the ranking
@@ -95,18 +159,10 @@ namespace memory
             {
                 if (score.Item2 >= ranking[i].Item2)
                 {
-                    //adding to growen the list
-                    //ranking.Add(("empty", 0));
-                    //// making place for new record
-                    //for (int j = ranking.Count - 1; j > i ; j--)
-                    //{
-                    //    ranking[j] = ranking[j - 1];
-                    //}
                     ranking.Insert(i, score);
                     return;
                 }
             }
-            //ranking.Add(score);
         }
         public void rankingToFile()
         {
@@ -117,25 +173,6 @@ namespace memory
                 to_file.AppendLine(s.Item1 + " " + s.Item2.ToString());
             }
             File.WriteAllText("ranking.txt", to_file.ToString());
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (ranking_window == null)
-            {
-                MessageBox.Show("zakmniete");
-            }
-            //if (ranking_window.IsAccessible && gamePlay.IsAccessible)
-            //{
-            //    this.Show();
-            //    y++;
-            //    label4.Text = y.ToString();
-            //}
         }
     }
 }
