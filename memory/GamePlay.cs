@@ -42,7 +42,7 @@ namespace memory
         List<Label> labels = new List<Label>();
 
 
-        int level;
+        Level level;
         private Form1 form1;
         private int points;
         private int guessedCards = 0;
@@ -52,7 +52,7 @@ namespace memory
         Label secondClickedCard = null;
 
         // TODO: LEVEL -> ENUM
-        public GamePlay(Form1 form1, int level)
+        public GamePlay(Form1 form1, Level level)
         {
             InitializeComponent();
             this.Location = form1.Location;
@@ -62,8 +62,7 @@ namespace memory
             this.level = level;
 
             startGameAction();
-            debugging_shit.Text = form1.UnfoldedTime.ToString();
-            timer1.Interval = form1.UnfoldedTime;
+
         }
 
         private void startGameAction()
@@ -74,15 +73,16 @@ namespace memory
             "a", "a", "d", "d", "e", "e", "h", "h", "i", "i",
             "b", "b", "c", "c", "f", "f", "g", "g", "j", "j"
             };
-            symbols = symbols.GetRange(0, this.level * 4);
+            symbols = symbols.GetRange(0, (int)this.level * 4);
 
             // PLAY AGAIN SYNERIO 
-            // We don't want to create table one more time if we did it before
+            // We don't want to create table if we did it before
             if (labels.Count == 0)
             {
-                createTable(level);
+                createTable((int)level);
             }
 
+            timer1.Interval = form1.UnfoldedTime;
             points_label.Text = "0";
             guessedCards = 0;
             points = 0;
@@ -100,8 +100,7 @@ namespace memory
             foreach (Control card in all_cards.Controls)
             {
                 Label symbolLabel = card as Label;
-                // SAFTY EXIT
-                //if ()
+      
                 if (symbolLabel != null)
                 {
                     int randomIndex = random.Next(symbols.Count);
@@ -182,7 +181,7 @@ namespace memory
             points_label.Text = points.ToString();
 
             // GAME ENDED scenario 
-            if (guessedCards == level * 2)
+            if (guessedCards == (int)level * 2)
             {
                 gameEndedAction();
             }
@@ -195,25 +194,16 @@ namespace memory
             points *= 1000;
             points /= centyseconds;
             points -= form1.StartTime / 1000;
-            points *= (level - 2);
+            points *= ((int)level - 2);
         }
         private void gameEndedAction()
         {
             calculatingPionts();
 
             form1.addToRanking((form1.Nick, points));
-            //form1.rankingToFile();
+            timer3.Stop();
             string message = form1.Nick + ", Your score is (after taking time to consideration): " + points;
             MessageBox.Show(message, "GAME ENDED");
-            StringBuilder sb = new StringBuilder();
-            List<(string, int)> r = new List<(string, int)>();
-            r = form1.Ranking;
-            for (int i = 0; i < r.Count; ++i)
-            {
-                sb.Append(r[i].Item1 + " " + r[i].Item2 + "\n");
-            }
-            debugging_shit.Text = sb.ToString();
-            timer3.Stop();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -238,25 +228,6 @@ namespace memory
             form1.rankingToFile();
             form1.Show();
             this.Close();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-                unfoldAllCards();
-            else
-            {
-                foreach (Control card in all_cards.Controls)
-                {
-                    Label symbolLabel = card as Label;
-                    symbolLabel.ForeColor = symbolLabel.BackColor;
-                }
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            guessedCards = 7;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -294,6 +265,7 @@ namespace memory
             label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             label.Click += new System.EventHandler(this.card_Click);
         }
+
         private void createTable(int size)
         {
             this.label23 = new System.Windows.Forms.Label();

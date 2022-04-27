@@ -3,6 +3,10 @@
     "",
     "\\memory"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\memory\\GamePlay.cs",
+=======
+  "SelectedNode": "\\memory\\Form1.cs",
+>>>>>>> 751a7a29a0395b211ede3ec86ad40f78963696e6
   "PreviewInSolutionExplorer": false
 }
