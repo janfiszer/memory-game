@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,22 +20,6 @@ namespace memory
         // TABLE REPRESENTING CARDS
         System.Windows.Forms.TableLayoutPanel all_cards;
 
-        /*private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private Label label14;
-        private Label label15;
-        private Label label16;
-        private Label label17;
-        private Label label18;
-        private Label label19;*/
         private Label label20;
         private Label label21;
         private Label label22;
@@ -51,7 +36,6 @@ namespace memory
         Label firstClickedCard = null;
         Label secondClickedCard = null;
 
-        // TODO: LEVEL -> ENUM
         public GamePlay(Form1 form1, Level level)
         {
             InitializeComponent();
@@ -137,9 +121,36 @@ namespace memory
                     secondClickedCard = clickedCard;
                     clickedCard.ForeColor = Color.White;
 
-                    timer1.Enabled = true;
+                    // Checking if are cards the same
+                    if (firstClickedCard.Text.Equals(secondClickedCard.Text))
+                    {
+                        cardsGuessedRight();
+                    }
+                    else
+                    {
+                        // cards weren't guessed right
+                        timer1.Enabled = true;
+                    }
+                    points_label.Text = points.ToString();
                 }
             }
+        }
+
+        private void cardsGuessedRight()
+        {
+            firstClickedCard.ForeColor = Color.White;
+            secondClickedCard.ForeColor = Color.White;
+            points += (10000 / form1.UnfoldedTime);
+            guessedCards++;
+
+            // GAME ENDED scenario 
+            if (guessedCards == (int)level * 2)
+            {
+                gameEndedAction();
+            }
+            // TODO: make those null just once
+            firstClickedCard = null;
+            secondClickedCard = null;
         }
 
         private void unfoldAllCards()
@@ -164,27 +175,12 @@ namespace memory
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            // Checking if are cards the same
-            if (firstClickedCard.Text.Equals(secondClickedCard.Text))
-            {
-                firstClickedCard.ForeColor = Color.White;
-                secondClickedCard.ForeColor = Color.White;
-                points += (10000 / form1.UnfoldedTime);
-                guessedCards++;
-            }
-            else
-            {
-                firstClickedCard.ForeColor = firstClickedCard.BackColor;
-                secondClickedCard.ForeColor = secondClickedCard.BackColor;
-                points -= form1.UnfoldedTime / 1000;
-            }
-            points_label.Text = points.ToString();
 
-            // GAME ENDED scenario 
-            if (guessedCards == (int)level * 2)
-            {
-                gameEndedAction();
-            }
+            firstClickedCard.ForeColor = firstClickedCard.BackColor;
+            secondClickedCard.ForeColor = secondClickedCard.BackColor;
+            points -= form1.UnfoldedTime / 1000;
+
+            // TODO: make those null just once
             firstClickedCard = null;
             secondClickedCard = null;
         }
@@ -220,6 +216,9 @@ namespace memory
         private void play_again_button_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reshuffling cards...", "Game started again");
+            // BIG TODO: MAKE IT SOMEHOW BETTER
+            //Thread.Sleep(3000);
+
             startGameAction();
         }
 

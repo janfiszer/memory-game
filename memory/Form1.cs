@@ -67,7 +67,7 @@ namespace memory
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Haven't load ranking propeply! " + ex);
+                MessageBox.Show("Haven't load ranking propeply!\n" + ex);
             }
         }
         private void button1_Click(object sender, EventArgs e)
