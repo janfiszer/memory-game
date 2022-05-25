@@ -28,7 +28,7 @@ namespace memory
         List<Label> labels = new List<Label>();
 
 
-        Level level;
+        Settings settings;
         private Form1 form1;
         private int points;
         private int guessedCards = 0;
@@ -37,14 +37,19 @@ namespace memory
         Label firstClickedCard = null;
         Label secondClickedCard = null;
 
-        public GamePlay(Form1 form1, Level level)
+        public GamePlay(Form1 form1, Settings settings)
         {
             InitializeComponent();
+
+            this.settings = settings;
+
             this.Location = form1.Location;
             this.Size = form1.Size;
             this.form1 = form1;
-            label1.Text = form1.Nick + " is playing!";
-            this.level = level;
+
+            label1.Text = settings.Nick + " is playing!";
+            timer1.Interval = settings.Unfolded_time;
+            timer2.Interval = settings.Start_time;
 
             startGameAction();
 
@@ -58,23 +63,22 @@ namespace memory
             "a", "a", "d", "d", "e", "e", "h", "h", "i", "i",
             "b", "b", "c", "c", "f", "f", "g", "g", "j", "j"
             };
-            symbols = symbols.GetRange(0, (int)this.level * 4);
+            symbols = symbols.GetRange(0, (int)this.settings.level * 4);
 
             // PLAY AGAIN SYNERIO 
             // We don't want to create table if we did it before
             if (labels.Count == 0)
             {
-                createTable((int)level);
+                createTable((int)this.settings.level);
             }
 
-            timer1.Interval = form1.UnfoldedTime;
             points_label.Text = "0";
+            time_label.Text = "0";
             guessedCards = 0;
             points = 0;
             centyseconds = 0;
             firstClickedCard = null;
             secondClickedCard = null;
-            timer2.Interval = form1.StartTime;
 
             ShuffleSquarse();
             unfoldAllCards();
@@ -141,11 +145,11 @@ namespace memory
         {
             firstClickedCard.ForeColor = Color.White;
             secondClickedCard.ForeColor = Color.White;
-            points += (10000 / form1.UnfoldedTime);
+            points += (10000 / settings.Unfolded_time);
             guessedCards++;
 
             // GAME ENDED scenario 
-            if (guessedCards == (int)level * 2)
+            if (guessedCards == (int)this.settings.level * 2)
             {
                 gameEndedAction();
             }
@@ -179,7 +183,7 @@ namespace memory
 
             firstClickedCard.ForeColor = firstClickedCard.BackColor;
             secondClickedCard.ForeColor = secondClickedCard.BackColor;
-            points -= form1.UnfoldedTime / 500;
+            points -= settings.Unfolded_time / 500;
 
             // TODO: make those null just once
             firstClickedCard = null;
@@ -190,16 +194,16 @@ namespace memory
         {
             points *= 1000;
             points /= centyseconds;
-            points -= form1.StartTime / 1000;
-            points *= ((int)level - 2);
+            points -= settings.Start_time / 1000;
+            points *= ((int)this.settings.level - 2);
         }
         private void gameEndedAction()
         {
             calculatingPionts();
 
-            form1.addToRanking((form1.Nick, points));
+            form1.addToRanking((settings.Nick, points));
             timer3.Stop();
-            string message = form1.Nick + ", Your score is (after taking time to consideration): " + points;
+            string message = settings.Nick + ", Your score is (after taking time to consideration): " + points;
             MessageBox.Show(message, "GAME ENDED");
         }
 

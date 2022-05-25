@@ -39,7 +39,7 @@
             this.toMenu_button = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
+            this.time_label = new System.Windows.Forms.Label();
             this.seconds_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -128,16 +128,16 @@
             // 
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // label3
+            // time_label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(16, 127);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "TIME:";
+            this.time_label.AutoSize = true;
+            this.time_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.time_label.Location = new System.Drawing.Point(16, 127);
+            this.time_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.time_label.Name = "time_label";
+            this.time_label.Size = new System.Drawing.Size(60, 24);
+            this.time_label.TabIndex = 54;
+            this.time_label.Text = "TIME:";
             // 
             // seconds_label
             // 
@@ -157,7 +157,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(992, 553);
             this.Controls.Add(this.seconds_label);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.time_label);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.toMenu_button);
             this.Controls.Add(this.play_again_button);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.Button toMenu_button;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label time_label;
         private System.Windows.Forms.Label seconds_label;
     }
 }

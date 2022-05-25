@@ -12,16 +12,12 @@ using System.IO;
 
 namespace memory
 {
-    public enum Level
-    {
-        EASY = 3,
-        MEDIUM = 4,
-        HARD = 5
-    }
+
     public partial class Form1 : Form
     {
         List<(string, int)> ranking = new List<(string, int)> ();
 
+        Settings settings;
         private String nick; 
         private int unfolded_time = 1000;
         private int start_time = 3000;
@@ -30,6 +26,11 @@ namespace memory
 
         Ranking ranking_window;
 
+        public Settings Settings
+        {
+            get { return settings; }
+            set { settings = value; }
+        }
         public String Nick
         {
             get { return nick; }
@@ -54,6 +55,7 @@ namespace memory
         {
             InitializeComponent();
             loadRankingFromFile();
+            settings = new Settings();
         }
         private void loadRankingFromFile()
         {
@@ -77,24 +79,30 @@ namespace memory
                 Level level = 0;
                 nick = textBox1.Text;
 
+                settings.Nick = nick;
+
                 if (radioButton1.Checked == true)
                 {
-                    level = Level.EASY;
+                    settings.level = Level.EASY;
                 }
                 if (radioButton2.Checked == true)
                 {
-                    level = Level.MEDIUM;
+                    settings.level = Level.MEDIUM;
                 }
                 if (radioButton3.Checked == true)
                 {
-                    level = Level.HARD;
+                    settings.level = Level.HARD;
                 }
-                if (level == 0)
+                if (settings.level == 0)
                 {
                     MessageBox.Show("Choose a difficulty level", "Unable to start the game");
                     return;
                 }
-                gamePlay = new GamePlay(this, level);
+
+                settings.Unfolded_time = unfolded_time;
+                settings.Start_time = start_time;
+
+                gamePlay = new GamePlay(this, settings);
                 gamePlay.Show();
                 this.Hide();
             }
@@ -120,7 +128,6 @@ namespace memory
             unfolded_time += 100;
             label1.Text = unfolded_time.ToString();
         }
-
         private void decrease_button_Click(object sender, EventArgs e)
         {
             if (unfolded_time > 100)
