@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace memory
@@ -27,8 +21,8 @@ namespace memory
         private Label label23;
         List<Label> labels = new List<Label>();
 
-
         Settings settings;
+
         private Form1 form1;
         private int points;
         private int guessedCards = 0;
@@ -171,12 +165,10 @@ namespace memory
         {
             return clickedcard.ForeColor == this.BackColor;
         }
-
         private bool already_choosen(Label clickedcard)
         {
             return clickedcard.ForeColor == Color.White;
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -189,7 +181,6 @@ namespace memory
             firstClickedCard = null;
             secondClickedCard = null;
         }
-
         private void calculatingPionts()
         {
             points *= 1000;
@@ -206,7 +197,6 @@ namespace memory
             string message = settings.Nick + ", Your score is (after taking time to consideration): " + points;
             MessageBox.Show(message, "GAME ENDED");
         }
-
         private void timer2_Tick(object sender, EventArgs e)
         {
             timer2.Stop();
@@ -217,7 +207,6 @@ namespace memory
             }
             timer3.Start();
         }
-
         private void play_again_button_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Reshuffling cards...", "Game started again");
@@ -240,7 +229,6 @@ namespace memory
             {
                 timer3.Start();
                 button1.Text = "PAUSE";
-
             }
             else
             {
@@ -254,13 +242,11 @@ namespace memory
             centyseconds++;
             seconds_label.Text = centyseconds.ToString();
         }
-
         private void Closed(object sender, FormClosedEventArgs e)
         {
             form1.rankingToFile();
             form1.Show();
         }
-
         private void setLabelProprties(Label label)
         {
             label.AutoSize = true;
@@ -269,7 +255,6 @@ namespace memory
             label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             label.Click += new System.EventHandler(this.card_Click);
         }
-
         private void createTable(int size)
         {
             this.label23 = new System.Windows.Forms.Label();
@@ -324,13 +309,13 @@ namespace memory
                 setLabelProprties(label);
             }
 
-            this.all_cards = new System.Windows.Forms.TableLayoutPanel();
+            this.all_cards = new TableLayoutPanel();
             this.all_cards.AccessibleDescription = "public";
-            this.all_cards.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.all_cards.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.all_cards.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.all_cards.AccessibleRole = AccessibleRole.None;
+            this.all_cards.Anchor = AnchorStyles.Top;
+            this.all_cards.BackColor = SystemColors.ActiveCaption;
             this.all_cards.CausesValidation = false;
-            this.all_cards.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
+            this.all_cards.CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble;
 
             this.all_cards.ColumnCount = size;
             for (int i = 0; i < size; i++)
@@ -350,7 +335,7 @@ namespace memory
                 this.all_cards.Controls.Add(label, column, row);
             }
 
-            this.all_cards.Location = new System.Drawing.Point(267, 27);
+            this.all_cards.Location = new System.Drawing.Point(300, 27);
             this.all_cards.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.all_cards.Name = "all_cards";
             this.all_cards.RowCount = 4;

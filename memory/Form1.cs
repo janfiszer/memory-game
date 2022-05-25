@@ -55,6 +55,7 @@ namespace memory
         {
             InitializeComponent();
             loadRankingFromFile();
+
             settings = new Settings();
         }
         private void loadRankingFromFile()
@@ -76,9 +77,7 @@ namespace memory
         {
             if (textBox1.Text != "")
             {
-                Level level = 0;
                 nick = textBox1.Text;
-
                 settings.Nick = nick;
 
                 if (radioButton1.Checked == true)
@@ -108,7 +107,7 @@ namespace memory
             }
             else
             {
-                MessageBox.Show("No nickname entered", "Unable to start the game");
+                MessageBox.Show("No nickname entered", "Unable to start the game", MessageBoxButtons.OK);
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -161,7 +160,6 @@ namespace memory
                 }
             }
         }
-
         // Adds to ranking sorted in correct place
         public void addToRanking((string, int) score)
         {
@@ -185,7 +183,6 @@ namespace memory
             StringBuilder to_file = new StringBuilder();
             foreach ((string, int) s in ranking)
             {
-                //to_file.AppendLine(ranking.IndexOf(s) + ". " + s.Item1 + " " + score.ToString());
                 to_file.AppendLine(s.Item1 + " " + s.Item2.ToString());
             }
             File.WriteAllText("ranking.txt", to_file.ToString());
